@@ -26,10 +26,10 @@ public class MovieRowViewModel extends BaseRowViewModel {
         mMovie = movie;
         mName.set(mMovie.title());
         mDescription.set(mMovie.overview());
-        if (mAppSettings.getImageBaseUrl().isPresent() && mAppSettings.loadPosterSize().isPresent()) {
-            mImage.set(mAppSettings.getImageBaseUrl().get() + mAppSettings.loadPosterSize().get()+mMovie.poster_path());
+        if (mAppSettings.getImageBaseUrl().isPresent() && mAppSettings.loadThumbnailSize().isPresent()) {
+            mImage.set(mAppSettings.getImageBaseUrl().get() + mAppSettings.loadThumbnailSize().get()+mMovie.poster_path());
         }
-       
+
     }
 
     @NonNull

@@ -20,6 +20,7 @@ public class AppSettings  {
     private static final String IMAGE_BASE_URL = "image_base_url";
     protected static final String IS_CONFIGURATION_DONE = "is_configuration";
     protected static final String POSTER_SIZE = "poster_size";
+    protected static final String THUMBNAIL_SIZE = "thumbnail_size";
     private static final long INVALID_VALUE = -1;
 
 
@@ -106,6 +107,10 @@ public class AppSettings  {
         saveToSettings(POSTER_SIZE, checkNotNull(poster));
     }
 
+    public void saveThumbnailSize(@NonNull String poster) {
+        saveToSettings(THUMBNAIL_SIZE, checkNotNull(poster));
+    }
+
     public void saveStoreId(long storeId) {
         saveToSettings(SETTINGS_STORE_ID, storeId);
     }
@@ -128,6 +133,13 @@ public class AppSettings  {
     @NonNull
     Optional<String> loadPosterSize() {
         return loadFromSettings(POSTER_SIZE);
+    }
+
+
+    public
+    @NonNull
+    Optional<String> loadThumbnailSize() {
+        return loadFromSettings(THUMBNAIL_SIZE);
     }
 
     public long loadStoreId() {

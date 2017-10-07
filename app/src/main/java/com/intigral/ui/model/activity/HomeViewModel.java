@@ -218,7 +218,8 @@ public class HomeViewModel extends BaseActivityViewModel implements Serializable
         mAppSettings.setConfigurationAdded(true);
         MovieImage image = response.images();
         mAppSettings.saveImageBaseUrl(image.base_url());
-        mAppSettings.savePosterSize(image.poster_sizes().get(3));
+        mAppSettings.savePosterSize(image.poster_sizes().get(2));
+        mAppSettings.saveThumbnailSize(image.poster_sizes().get(0));
         loadProductsIfNecessary();
 
     }
