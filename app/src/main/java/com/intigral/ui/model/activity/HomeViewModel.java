@@ -6,7 +6,6 @@ import android.databinding.ObservableField;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -141,8 +140,7 @@ public class HomeViewModel extends BaseActivityViewModel implements Serializable
 
         @Override
         public int getItemCount() {
-            Log.d("error","error"+getCurrentList().size());
-            return getCurrentList().size();
+             return getCurrentList().size();
         }
 
         /**
@@ -219,7 +217,7 @@ public class HomeViewModel extends BaseActivityViewModel implements Serializable
         MovieImage image = response.images();
         mAppSettings.saveImageBaseUrl(image.base_url());
         mAppSettings.savePosterSize(image.poster_sizes().get(2));
-        mAppSettings.saveThumbnailSize(image.poster_sizes().get(0));
+        mAppSettings.saveThumbnailSize(image.poster_sizes().get(1));
         loadProductsIfNecessary();
 
     }

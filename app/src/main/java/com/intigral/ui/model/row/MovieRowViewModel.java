@@ -2,6 +2,7 @@ package com.intigral.ui.model.row;
 
 import android.databinding.ObservableInt;
 import android.support.annotation.NonNull;
+import android.util.Log;
 
 import com.intigral.R;
 import com.intigral.model.IntigralMovie;
@@ -19,7 +20,6 @@ public class MovieRowViewModel extends BaseRowViewModel {
     public final ObservableString mDescription = new ObservableString();
     public final ObservableInt mPlaceholder = new ObservableInt(R.drawable.ic_default_pic);
     private final IntigralMovie mMovie;
-    private String currency;
     AppSettings mAppSettings = AppSettings.getInstance();
 
     public MovieRowViewModel(@NonNull IntigralMovie movie) {
@@ -28,6 +28,7 @@ public class MovieRowViewModel extends BaseRowViewModel {
         mDescription.set(mMovie.overview());
         if (mAppSettings.getImageBaseUrl().isPresent() && mAppSettings.loadThumbnailSize().isPresent()) {
             mImage.set(mAppSettings.getImageBaseUrl().get() + mAppSettings.loadThumbnailSize().get()+mMovie.poster_path());
+            Log.d("poster",mImage.get());
         }
 
     }
