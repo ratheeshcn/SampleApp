@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="com.google.common.base.Strings" />
+
+        <import type="com.intigral.R" />
+
+        <variable
+            name="model"
+            type="com.intigral.ui.model.activity.HomeViewModel" />
+    </data>
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/rlChatToolbar"
+                style="@style/app_bar_textstyle"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/padding_small"
+                android:paddingStart="@dimen/padding_default"
+                android:paddingEnd="@dimen/padding_toolbar"
+                android:paddingTop="@dimen/padding_small">
+
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="@dimen/padding_medium"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:textAlignment="viewStart"
+                    android:fontFamily="sans-serif-regular"
+                    android:gravity="start|center_vertical"
+                    android:paddingStart="@dimen/padding_smallest"
+                    android:textStyle="bold"
+                    android:textColor="@color/mdtp_white"
+                    android:textSize="@dimen/font_toolbar"
+                    android:text="@string/label_catalog"
+                    android:textAllCaps="true"/>
+
+            </LinearLayout>
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/movie_box_size1"
+                        android:layout_marginTop="@dimen/padding_small">
+
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/rvAdditional"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal"
+                            app:adapter="@{model.mAdditionalAdapter}"
+                            app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+                             />
+
+                        <ProgressBar
+                            android:layout_width="@dimen/padding_large"
+                            android:layout_height="@dimen/padding_large"
+                            android:layout_gravity="center"
+                            app:visibleIf="@{model.mIsAdditionalDataLoading}" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="@string/error_no_movies"
+                            android:textColor="@color/greyish_brown"
+                            app:visibleIf="@{!model.mIsAdditionalDataLoading &amp;&amp; model.mIsEmptyAdditionalData}" />
+                    </FrameLayout>
+            </LinearLayout>
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:visibleIf="@{model.mIsLoading}" />
+        </FrameLayout>
+
+    </android.support.design.widget.CoordinatorLayout>
+</layout>

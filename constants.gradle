@@ -1,0 +1,25 @@
+ext {
+    app = [
+
+            buildTools: "25.0.3",
+            baseId: "com.intigral",
+
+            apiUrl: '"https://api.themoviedb.org"',
+            apiUrlEndpoint: '"/3/"',
+            apiKey:'"114fe6670282f6a632638661e5e86dee"',
+            apiLanguage:'"en-US"',
+    ]
+
+    sdk = [
+
+            min: 17,
+            target: 25,
+            compile: 25
+
+    ]
+
+    lang = [
+            source: JavaVersion.VERSION_1_8,
+            target: JavaVersion.VERSION_1_8
+    ]
+}

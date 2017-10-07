@@ -1,0 +1,77 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/color_primary</item>
+        <item name="colorPrimaryDark">@color/color_primary_dark</item>
+        <item name="colorAccent">@color/color_accent</item>
+
+    </style>
+    <style name="AppThemeStatusBarColor" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="colorPrimaryDark">@color/status_bar_blue</item>
+        <item name="colorPrimary">@color/color_accent</item>
+        <item name="colorAccent">@color/color_accent</item>
+
+    </style>
+    <style name="BlackAppTheme" parent="AppThemeNoActionBar">
+        <item name="colorPrimaryDark">@android:color/black</item>
+    </style>
+
+    <style name="SplashTheme" parent="AppThemeNoActionBar">
+        <item name="android:windowBackground">@drawable/appbarbg</item>
+    </style>
+
+
+    <style name="AppThemeNoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/color_primary</item>
+        <item name="colorPrimaryDark">@color/color_primary_dark</item>
+        <item name="colorAccent">@color/color_accent</item>
+
+    </style>
+    <style name="AppThemeNoActionBarFullScreen" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/color_primary</item>
+        <item name="colorPrimaryDark">@color/color_primary_dark</item>
+        <item name="colorAccent">@color/color_accent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+
+    <style name="app_bar_textstyle">
+
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">@dimen/font_toolbar</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@drawable/appbarbg</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:layout_height">?actionBarSize</item>
+    </style>
+
+
+
+    <style name="ElevatedItem"/>
+
+    <style name="SelectableBorderlessItem">
+        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
+    </style>
+
+
+
+
+
+
+
+
+
+
+
+</resources>

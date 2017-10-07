@@ -1,0 +1,122 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'me.tatarka.retrolambda'
+
+android {
+    compileSdkVersion sdk.compile
+    buildToolsVersion app.buildTools
+
+
+    dataBinding {
+        enabled = true
+    }
+
+    dexOptions {
+        javaMaxHeapSize "2g"
+    }
+
+    defaultConfig {
+        applicationId "${app.baseId}"
+        minSdkVersion sdk.min
+        targetSdkVersion sdk.target
+
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+        vectorDrawables.useSupportLibrary=true
+
+    }
+
+    buildTypes {
+        debug {
+
+            buildConfigField "String", 'API_URL', app.apiUrl
+            buildConfigField "String", 'API_VERSION', app.apiUrlEndpoint
+            buildConfigField "String", 'LANGUAGE', app.apiLanguage
+            buildConfigField "String", 'API_KEY', app.apiKey
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        release {
+            buildConfigField "String", 'API_URL', app.apiUrl
+            buildConfigField "String", 'API_VERSION', app.apiUrlEndpoint
+            buildConfigField "String", 'LANGUAGE', app.apiLanguage
+            buildConfigField "String", 'API_KEY', app.apiKey
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility lang.source
+        targetCompatibility lang.target
+    }
+
+    buildToolsVersion '25.0.0'
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile support.appCompat
+    compile support.appCompatV4
+    compile support.design
+    compile support.recyclerView
+    compile support.cardView
+
+    compile squareup.retrofit
+    compile squareup.retrofitGson
+    compile squareup.loggingInterceptor
+
+    compile glide.glide
+    compile glide.glideTransformations
+
+    compile joda.time
+
+    compile google.guava
+    compile google.libphone
+
+
+
+    compile rx.java
+    compile rx.android
+    compile rx.retrofitAdapter
+
+
+
+    compile views.bottom
+    compile views.datePicker
+    compile views.fastScroller
+    compile views.flowLayout
+
+    provided autoValue.autoValue
+    provided autoValue.autoParcel
+    provided autoValue.autoGson
+
+    apt autoValue.autoValue
+    apt autoValue.autoParcel
+    apt autoValue.autoGson
+
+    debugCompile squareup.leakCanaryDebug
+    releaseCompile squareup.leakCanaryRelease
+
+    testCompile squareup.leakCanaryTest
+    testCompile test.junit
+
+    androidTestCompile test.dexmakerMockito
+    androidTestCompile test.dexmaker
+    androidTestCompile test.mockitoCore
+
+    androidTestCompile (test.espressoCore) {
+        exclude module: 'support-annotations'
+    }
+    androidTestCompile(test.espressoIntents) {
+        exclude module: 'support-annotations'
+    }
+
+
+
+    compile 'com.jakewharton.rxbinding:rxbinding:0.4.0'
+    compile 'com.google.code.gson:gson:2.8.0'
+
+}

@@ -1,0 +1,9 @@
+<resources>
+    <style name="ElevatedItem">
+        <item name="android:elevation">8dp</item>
+    </style>
+
+    <style name="SelectableBorderlessItem">
+        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
+    </style>
+</resources>

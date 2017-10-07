@@ -1,0 +1,40 @@
+<resources>
+
+    <!--Paddings-->
+    <dimen name="padding_smallest">2dp</dimen>
+    <dimen name="padding_small">4dp</dimen>
+    <dimen name="padding_medium">6dp</dimen>
+    <dimen name="padding_medium_large">7dp</dimen>
+    <dimen name="padding_default">8dp</dimen>
+    <dimen name="padding_semi">10dp</dimen>
+    <dimen name="padding_semi_large">12dp</dimen>
+    <dimen name="padding_toolbar">14dp</dimen>
+    <dimen name="padding_large">16dp</dimen>
+    <dimen name="padding_semi_larger">18dp</dimen>
+    <dimen name="padding_larger">20dp</dimen>
+    <dimen name="padding_xlarge">24dp</dimen>
+    <dimen name="padding_semi_xlarge">32dp</dimen>
+    <dimen name="padding_semi_xlarger">40dp</dimen>
+    <dimen name="padding_xxlarge">48dp</dimen>
+    <dimen name="padding_xxlarger">60dp</dimen>
+    <dimen name="padding_xxxlarge">72dp</dimen>
+
+    <!--Movie Box-->
+    <dimen name="movie_box_size">160dp</dimen>
+    <dimen name="movie_box_size1">162dp</dimen>
+    <dimen name="movie_poster_size">250dp</dimen>
+
+    <!--Fonts-->
+
+    <dimen name="font_small">12sp</dimen>
+    <dimen name="font_semi_medium">13sp</dimen>
+    <dimen name="font_medium">14sp</dimen>
+    <dimen name="font_medium_big">15sp</dimen>
+    <dimen name="font_normal">16sp</dimen>
+    <dimen name="font_normal1">17sp</dimen>
+    <dimen name="font_big">18sp</dimen>
+    <dimen name="font_toolbar">20sp</dimen>.
+
+
+
+</resources>
