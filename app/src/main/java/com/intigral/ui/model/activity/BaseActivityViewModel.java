@@ -14,7 +14,6 @@ import android.support.v7.app.AppCompatActivity;
 import com.google.common.eventbus.EventBus;
 import com.intigral.net.IntigralApi;
 import com.intigral.ui.model.BaseViewModel;
-import com.intigral.ui.util.binding.ObservableString;
 import com.intigral.ui.util.instrumentation.InstrumentationProvider;
 
 import static com.google.common.base.Preconditions.checkNotNull;
@@ -100,14 +99,6 @@ public class BaseActivityViewModel extends BaseViewModel {
 
 
     }
-    protected void setText(ObservableString string, String text){
-        if(text == null){
-            string.set("");
-        }else{
-            string.set("");
-            string.set(text);
-        }
 
-    }
 
 }

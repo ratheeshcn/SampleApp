@@ -16,7 +16,6 @@ import static com.google.common.base.Preconditions.checkNotNull;
  */
 
 public class MovieDetailsActivityViewModel extends BaseActivityViewModel {
-     public long Product_Id = 0;
 
     public final ObservableLong mMovieId = new ObservableLong();
     public final ObservableString mVoteAverage = new ObservableString();

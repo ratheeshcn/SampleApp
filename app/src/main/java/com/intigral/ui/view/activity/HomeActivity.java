@@ -3,7 +3,6 @@ package com.intigral.ui.view.activity;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 
-import com.intigral.IntigralApplication;
 import com.intigral.R;
 import com.intigral.databinding.ActivityHomeBinding;
 import com.intigral.ui.model.activity.HomeViewModel;
@@ -53,7 +52,6 @@ public class HomeActivity extends BaseActivity{
     @Override
     public void onStop() {
         super.onStop();
-        IntigralApplication.getEventBus().post(new BaseActivity.HideKeyboardEvent());
 
     }
 

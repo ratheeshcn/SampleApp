@@ -43,7 +43,7 @@ public class HomeViewModel extends BaseActivityViewModel implements Serializable
     private static final int NO_ID = 0;
     public final ObservableField<RecyclerView.Adapter> mAdditionalAdapter = new ObservableField<>();
     public MoviesAdapter mMoviesAdapter;
-    private final List<MovieRowViewModel> mProducts = new ArrayList<>();
+    private final List<MovieRowViewModel> mMovies = new ArrayList<>();
     int PAGE = 1;
     AppSettings mAppSettings = AppSettings.getInstance();
     public final ObservableBoolean mIsLoading = new ObservableBoolean();
@@ -53,7 +53,7 @@ public class HomeViewModel extends BaseActivityViewModel implements Serializable
 
    @NonNull
         private List<MovieRowViewModel> getCurrentList() {
-              return mProducts;
+              return mMovies;
 
         }
 
@@ -185,7 +185,7 @@ public class HomeViewModel extends BaseActivityViewModel implements Serializable
         initializeModels();
         //check config added or not
         if(mAppSettings.isConfigurationAdded()){
-            loadProductsIfNecessary();
+            loadMoviesIfNecessary();
         }else {
             fetchConfigurations();
         }
@@ -218,7 +218,7 @@ public class HomeViewModel extends BaseActivityViewModel implements Serializable
         mAppSettings.saveImageBaseUrl(image.base_url());
         mAppSettings.savePosterSize(image.poster_sizes().get(2));
         mAppSettings.saveThumbnailSize(image.poster_sizes().get(1));
-        loadProductsIfNecessary();
+        loadMoviesIfNecessary();
 
     }
 
@@ -235,9 +235,9 @@ public class HomeViewModel extends BaseActivityViewModel implements Serializable
 
 
     /**
-     * Load products if necessary.
+     * Load movies if necessary.
      */
-    protected void loadProductsIfNecessary() {
+    protected void loadMoviesIfNecessary() {
 
         if (mMoviesAdapter.isEmpty()) {
             mAdditionalDataCurrentPage = FIRST_PAGE;
@@ -250,7 +250,7 @@ public class HomeViewModel extends BaseActivityViewModel implements Serializable
 
 
     /**
-     * Load products.
+     * Load movies.
      */
     protected void loadMovies(String sortBy,int page) {
 
@@ -291,7 +291,7 @@ public class HomeViewModel extends BaseActivityViewModel implements Serializable
     /**
      * Handle movie response.
      *
-     * @param movies the products
+     * @param movies the movies
      */
     protected void handleMoviesResponse(@NonNull List<MovieRowViewModel> movies) {
         mMoviesAdapter.refill(movies, false);
@@ -300,15 +300,6 @@ public class HomeViewModel extends BaseActivityViewModel implements Serializable
         mAdditionalDataCurrentPage++;
     }
 
-    /**
-     * Handle searched products response.
-     *
-     * @param products the products
-     */
-    protected void handleSearchedProductsResponse(@NonNull List<MovieRowViewModel> products) {
-        mMoviesAdapter.refill(products, true);
-        mIsEmptyAdditionalData.set(mMoviesAdapter.isEmpty());
-    }
 
     private void createAdapters() {
         mMoviesAdapter = new MoviesAdapter();
