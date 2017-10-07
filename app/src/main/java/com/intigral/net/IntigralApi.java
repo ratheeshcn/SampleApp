@@ -15,14 +15,14 @@ import rx.Observable;
  */
 public interface IntigralApi {
 
-
+//get movies list
     @GET("discover/movie?")
     @NonNull Observable<GetMoviesResponse> getMoviesList(@Query("api_key")String apiKey,
       @Query("language") @NonNull String language, @Query("sort_by")
     @NonNull String sort_By, @Query("include_adult") boolean include_Adult, @Query("include_video") boolean include_video,
                                                          @Query("page") int page);
 
-
+//get configuration list
     @GET("configuration?")
     @NonNull Observable<GetConfigurationResponse> getConfigurations(@Query("api_key")String apiKey);
 
