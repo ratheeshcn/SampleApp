@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 
 import com.intigral.R;
 import com.intigral.model.IntigralMovie;
+import com.intigral.settings.AppSettings;
 import com.intigral.ui.util.binding.ObservableString;
 
 /**
@@ -19,13 +20,16 @@ public class MovieRowViewModel extends BaseRowViewModel {
     public final ObservableInt mPlaceholder = new ObservableInt(R.drawable.ic_default_pic);
     private final IntigralMovie mMovie;
     private String currency;
+    AppSettings mAppSettings = AppSettings.getInstance();
 
     public MovieRowViewModel(@NonNull IntigralMovie movie) {
         mMovie = movie;
         mName.set(mMovie.title());
         mDescription.set(mMovie.overview());
-        mImage.set("https://image.tmdb.org/t/p/w154/"+mMovie.poster_path());
-
+        if (mAppSettings.getImageBaseUrl().isPresent() && mAppSettings.loadPosterSize().isPresent()) {
+            mImage.set(mAppSettings.getImageBaseUrl().get() + mAppSettings.loadPosterSize().get()+mMovie.poster_path());
+        }
+       
     }
 
     @NonNull
