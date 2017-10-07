@@ -54,6 +54,7 @@
                     android:layout_gravity="center"
                     android:text="@string/label_details"
                     android:textAllCaps="true"
+                    android:textStyle="bold"
                     android:textColor="@color/mdtp_white" />
 
 
